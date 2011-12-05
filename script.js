@@ -66,8 +66,6 @@ function shortcut_onload() {
     
 
 
-nqxxx = "hellow world";
-
 // the google code sets the hash, but doesn't seem to clean it up on back ... delete it
 if (window.location.hash) {
     window.location.hash = "";
