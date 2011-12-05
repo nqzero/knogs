@@ -28,14 +28,6 @@ var shortcut_js = "https://www.google.com/js/shortcuts.5.js"
 // shortcut_js = chrome.extension.getURL( "googleKeyboard.js" );
 
 
-function dummyScript() {
-    a=document.getElementsByName('q')[0];
-    b=document.getElementById('nqHelper');
-    var txt = a.onfocus;
-    txt = txt.toString();
-    b.onfocus=a.onfocus;
-    console.log( 'yyy --- yyy ' + txt);
-}
 
 
 
@@ -44,15 +36,6 @@ function addJavaScript( id, inner, js, onload ) {
    var head;
    head = document.getElementsByTagName('head')[0];
    if (!head) {return;}
-//   dummy = document.createElement('script');
-////   var inputs = document.getElementsByName("q");
-////   if (inputs.length > 0)  dummy.onfocus = inputs[0].onfocus;
-////   dummy.innerHTML = "a=document.getElementsByName('q')[0]; b=document.getElementById('nqHelper'); var txt = a.onfocus; txt = txt.toString(); b.onfocus=a.onfocus; console.log(txt);";
-//   dummy.innerHTML = "a=document.getElementsByName('q')[0]; a.oncut=a.onfocus";
-////   dummy.innerHTML = dummyScript.toString();
-//   dummy.id = "nqDummy";
-//   dummy.style.visibility = "hidden";
-//   document.body.appendChild( dummy );
    script = document.createElement('script');
    script.type = 'text/javascript';
    script.id = id;
@@ -62,8 +45,12 @@ function addJavaScript( id, inner, js, onload ) {
    head.appendChild(script);
 }
 
-var copy = "a=document.getElementsByName('q')[0]; a.oncut=a.onfocus";
-var back = "a=document.getElementsByName('q')[0]; a.onfocus=a.oncut; a.oncut=undefined;";
+// for the most part focus works without modifying the google script
+// occassionally focus gets screwed up, requiring a reload
+//   seems to happen primarily when the input is selected while a load is ongoing
+//   but could be more complicated
+var copy = "a=document.getElementsByName('q')[0]; nqxxx=a.onfocus";
+var back = "a=document.getElementsByName('q')[0]; a.onfocus=nqxxx;";
 
 // there's some bit rot in google's javascript - polish it
 function shortcut_onload() {
@@ -73,12 +60,8 @@ function shortcut_onload() {
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
-    var sch = document.getElementsByName("q");
-//    for(var c=0;c<sch.length;c++)
-//        sch[c].onfocus = sch[0].oncut;
-//    sch[0].oncut = undefined;
-    console.log("stuff - shon");
-    addJavaScript(  'nqBack', back, null, null );
+    console.log("stuff - shon: ");
+    addJavaScript( 'nqBack', back,        null, null );
 }
 
     
