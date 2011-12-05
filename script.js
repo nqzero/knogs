@@ -40,31 +40,30 @@ function dummyScript() {
 
 
 // Force loading of Google Shortcuts JS functions
-function addJavaScript( js, onload ) {
+function addJavaScript( id, inner, js, onload ) {
    var head;
    head = document.getElementsByTagName('head')[0];
    if (!head) {return;}
-   helper = document.createElement('input');
-   helper.id = 'nqHelper';
-   helper.style.visibility = "hidden";
-   document.body.appendChild( helper );
-
-   dummy = document.createElement('script');
-//   var inputs = document.getElementsByName("q");
-//   if (inputs.length > 0)  dummy.onfocus = inputs[0].onfocus;
-//   dummy.innerHTML = "a=document.getElementsByName('q')[0]; b=document.getElementById('nqHelper'); var txt = a.onfocus; txt = txt.toString(); b.onfocus=a.onfocus; console.log(txt);";
-   dummy.innerHTML = "a=document.getElementsByName('q')[0]; a.oncut=a.onfocus";
-//   dummy.innerHTML = dummyScript.toString();
-   dummy.id = "nqDummy";
-   dummy.style.visibility = "hidden";
-   document.body.appendChild( dummy );
+//   dummy = document.createElement('script');
+////   var inputs = document.getElementsByName("q");
+////   if (inputs.length > 0)  dummy.onfocus = inputs[0].onfocus;
+////   dummy.innerHTML = "a=document.getElementsByName('q')[0]; b=document.getElementById('nqHelper'); var txt = a.onfocus; txt = txt.toString(); b.onfocus=a.onfocus; console.log(txt);";
+//   dummy.innerHTML = "a=document.getElementsByName('q')[0]; a.oncut=a.onfocus";
+////   dummy.innerHTML = dummyScript.toString();
+//   dummy.id = "nqDummy";
+//   dummy.style.visibility = "hidden";
+//   document.body.appendChild( dummy );
    script = document.createElement('script');
    script.type = 'text/javascript';
-   script.id = 'nqGokena';
-   script.src = js;
-   script.addEventListener( "load", onload, false );
+   script.id = id;
+   if (js) script.src = js;
+   else    script.innerHTML = inner;
+   if (onload) script.addEventListener( "load", onload, false );
    head.appendChild(script);
 }
+
+var copy = "a=document.getElementsByName('q')[0]; a.oncut=a.onfocus";
+var back = "a=document.getElementsByName('q')[0]; a.onfocus=a.oncut; a.oncut=undefined;";
 
 // there's some bit rot in google's javascript - polish it
 function shortcut_onload() {
@@ -75,10 +74,11 @@ function shortcut_onload() {
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
     var sch = document.getElementsByName("q");
-    var nqfocus = document.getElementById("nqHelper");
-    for(var c=0;c<sch.length;c++)
-        sch[c].onfocus = undefined; // sch[0].oncut;
-    sch[0].oncut = undefined;
+//    for(var c=0;c<sch.length;c++)
+//        sch[c].onfocus = sch[0].oncut;
+//    sch[0].oncut = undefined;
+    console.log("stuff - shon");
+    addJavaScript(  'nqBack', back, null, null );
 }
 
     
@@ -94,7 +94,8 @@ if (window.location.hash) {
     window.location = a.replace( "#", "" );
 }
 
+console.log("stuff2 " + document.readyState);
 
-
-addJavaScript( shortcut_js, shortcut_onload );
+addJavaScript( 'nqDummy', copy,        null, null );
+addJavaScript(  'nqMain', null, shortcut_js, shortcut_onload );
 
