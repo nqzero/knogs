@@ -60,7 +60,6 @@ function shortcut_onload() {
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
-    console.log("stuff - shon: ");
     addJavaScript( 'nqBack', back,        null, null );
 }
 
@@ -68,7 +67,6 @@ function shortcut_onload() {
 
 
 nqxxx = "hellow world";
-console.log("stuff2 " + document.readyState);
 
 // the google code sets the hash, but doesn't seem to clean it up on back ... delete it
 if (window.location.hash) {
@@ -77,7 +75,6 @@ if (window.location.hash) {
     window.location = a.replace( "#", "" );
 }
 
-console.log("stuff2 " + document.readyState);
 
 addJavaScript( 'nqDummy', copy,        null, null );
 addJavaScript(  'nqMain', null, shortcut_js, shortcut_onload );
