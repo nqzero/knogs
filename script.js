@@ -5,11 +5,13 @@
 //                 places the cursor above the items (as opposed to on the far left)
 //                 known to work on:
 //                     chrome 17 on linux/64-bit
-//                     firefox 8.0 on linux/64-bit
+//                       occassional problems with focus during load
+//                 works partially:
+//                     firefox 8.0 on linux/64-bit - focus gets screwed up
 //                 bugs: opening an item and then using the back button doesn't set the cursor
 // @match          *://*.google.com/search*
 // @version        0.99
-// @creator        seth lytle (nqzero)
+// @creator        seth lytle (nqzero), copyright 2011
 // ==/UserScript==
 //
 // Quick Usage Instructions
@@ -26,7 +28,6 @@ var shortcut_js = "https://www.google.com/js/shortcuts.5.js"
 
 // use a local copy ...
 // shortcut_js = chrome.extension.getURL( "googleKeyboard.js" );
-
 
 
 
