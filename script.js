@@ -51,8 +51,6 @@ function addJavaScript( id, inner, js, onload ) {
 // occassionally focus gets screwed up, requiring a reload
 //   seems to happen primarily when the input is selected while a load is ongoing
 //   but could be more complicated
-var copy = "a=document.getElementsByName('q')[0]; nqxxx=a.onfocus";
-var back = "a=document.getElementsByName('q')[0]; a.onfocus=nqxxx;";
 
 // there's some bit rot in google's javascript - polish it
 function shortcut_onload() {
@@ -62,7 +60,6 @@ function shortcut_onload() {
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
-//    addJavaScript( 'nqBack', back,        null, null );
 }
 
     
@@ -76,6 +73,5 @@ if (window.location.hash) {
 }
 
 
-//addJavaScript( 'nqDummy', copy,        null, null );
 addJavaScript(  'nqMain', null, shortcut_js, shortcut_onload );
 
