@@ -57,9 +57,22 @@ function shortcut_onload() {
     var x = document.getElementsByClassName("mbEnd")[0];
     x && x.parentNode.removeChild(x);
     x = document.getElementsByClassName("g");
-    if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
+    // align the arrows
+    if (x) for (ii=0; ii < x.length; ii++) {
+      x[ii].style.position = "relative";
+      x[ii].children[0].style.position = "absolute";
+      x[ii].children[0].style.marginTop = "0";
+      x[ii].children[0].style.left = "-16px";
+      x[ii].children[0].style.top = "4px";
+    }
     x = document.getElementsByClassName("tas");
-    if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
+    if (x) for (ii=0; ii < x.length; ii++) {
+      x[ii].style.position = "relative";
+      x[ii].children[0].style.position = "absolute";
+      x[ii].children[0].style.marginTop = "0";
+      x[ii].children[0].style.left = "-16px";
+      x[ii].children[0].style.top = "4px";
+    }
 }
 
     
