@@ -1,3 +1,7 @@
+// downloaded and reformatted from https://www.google.com/js/shortcuts.5.js
+//   original didn't include a copywrite notice or license
+//   i'm including it here for reference (it's not used in the actual extension)
+
 var sc={};
 
 sc.c=[];

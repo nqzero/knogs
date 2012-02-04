@@ -1,0 +1,26 @@
+knogs: keyboard navigation on google search
+
+google used to proide a keyboard shortcuts experiment
+  deprecated long ago, removed dec 2011
+  the recommened replacements aren't great
+  http://blog.nqzero.com/2011/12/googles-experimental-page-used-to-list.html
+  google still provides the js: https://www.google.com/js/shortcuts.5.js
+
+knogs is a google chrome extension that provides similar functionality
+  uses google's shortcuts.5.js (see above)
+  google chrome only - tested on: chrome 17 on linux/64-bit
+
+install: click on srl.user.js in google chrome
+
+usage:
+  keybindings for search: j/k: up/down, enter or (shift) o to open (in a new tab)
+  places the cursor above the items (as opposed to on the far left)
+
+bugs:
+  occassional problems with focus during load
+  opening an item and then using the back button doesn't set the cursor
+  works partially: firefox 8.0 on linux/64-bit - focus gets screwed up
+
+license: mit/x
+  note: shortcut.5.js and googleKeyboard.js are "unlicensed" and included here for reference only
+        the extension loads these directly from google at page-load
