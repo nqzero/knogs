@@ -10,8 +10,9 @@
 //                     firefox 8.0 on linux/64-bit - focus gets screwed up
 //                 bugs: opening an item and then using the back button doesn't set the cursor
 // @match          *://*.google.com/search*
-// @version        0.99
+// @version        1.00
 // @creator        seth lytle (nqzero), copyright 2011
+// @license        mit/x
 // ==/UserScript==
 //
 // Quick Usage Instructions
@@ -61,7 +62,7 @@ function shortcut_onload() {
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) x[ii].children[0].style.position = "relative";
-    addJavaScript( 'nqBack', back,        null, null );
+//    addJavaScript( 'nqBack', back,        null, null );
 }
 
     
@@ -75,6 +76,6 @@ if (window.location.hash) {
 }
 
 
-addJavaScript( 'nqDummy', copy,        null, null );
+//addJavaScript( 'nqDummy', copy,        null, null );
 addJavaScript(  'nqMain', null, shortcut_js, shortcut_onload );
 
