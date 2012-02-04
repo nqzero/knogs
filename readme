@@ -24,3 +24,9 @@ bugs:
 license: mit/x
   note: shortcut.5.js and googleKeyboard.js are "unlicensed" and included here for reference only
         the extension loads these directly from google at page-load
+
+
+see also:
+  http://userscripts.org/scripts/show/43131
+    a similar extension for firefox. couldn't get it to load in chrome
+  
