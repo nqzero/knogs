@@ -60,10 +60,12 @@ function shortcut_onload() {
     // align the arrows
     if (x) for (ii=0; ii < x.length; ii++) {
       x[ii].style.position = "relative";
-      x[ii].children[0].style.position = "absolute";
-      x[ii].children[0].style.marginTop = "0";
-      x[ii].children[0].style.left = "-16px";
-      x[ii].children[0].style.top = "4px";
+      if (x[ii].children[0].nodeName == "IMG") {
+        x[ii].children[0].style.position = "absolute";
+        x[ii].children[0].style.marginTop = "0";
+        x[ii].children[0].style.left = "-16px";
+        x[ii].children[0].style.top = "4px";
+      }
     }
     x = document.getElementsByClassName("tas");
     if (x) for (ii=0; ii < x.length; ii++) {
