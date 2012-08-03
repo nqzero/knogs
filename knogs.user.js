@@ -6,6 +6,7 @@
 //                 known to work on:
 //                     chrome 17 on linux/64-bit
 //                       occassional problems with focus during load
+//                     chrome 21+ requires installing from the chrome store
 //                 works partially:
 //                     firefox 8.0 on linux/64-bit - focus gets screwed up
 //                 bugs: opening an item and then using the back button doesn't set the cursor

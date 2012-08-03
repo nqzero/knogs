@@ -1,6 +1,6 @@
 knogs: keyboard navigation on google search
 
-google used to proide a keyboard shortcuts experiment
+google used to provide a keyboard shortcuts experiment
   deprecated long ago, removed dec 2011
   the recommened replacements aren't great
   http://blog.nqzero.com/2011/12/googles-experimental-page-used-to-list.html
@@ -8,23 +8,30 @@ google used to proide a keyboard shortcuts experiment
 
 knogs is a google chrome extension that provides similar functionality
   uses google's shortcuts.5.js (see above)
-  google chrome only - tested on: chrome 17 on linux/64-bit
+  google chrome only - tested on: chrome 17+ on linux/64-bit
 
-install:
+install via chrome store:
+  https://chrome.google.com/webstore/detail/lmcekibeekmfpmhanampimjjegknceik
+
+manual install:
   used to be able to install by clicking on knogs.user.js in google chrome
   in version 21, google made it much more difficult to install extensions
   run google with the following option
     google-chrome --enable-easy-off-store-extension-install
   then click on knogs.user.js
-  in theory, the extension can be uploaded to the chrome store
 
+
+keybindings for search:
+  'j' and 'k' navigate up and down in the search results
+  'enter' or 'o' to open the selected page
+  'shift-enter' or 'shift-o' to open the page in a new tab
+  '/' to select the search box
+  'esc' to leave the search box (when it has focus)
 
 usage:
-  keybindings for search: j/k: up/down, enter or (shift) o to open (in a new tab)
-  places the cursor above the items (as opposed to on the far left)
+  places a cursor to the left of the selected item (thanks yjsoon)
 
 bugs:
-  occassional problems with focus during load
   opening an item and then using the back button doesn't set the cursor
   works partially: firefox 8.0 on linux/64-bit - focus gets screwed up
 
@@ -33,8 +40,8 @@ license: mit/x
         the extension loads these directly from google at page-load
 
 authors:
-  seth lytle - maintainer
-  YJ Soon - safari and keeping up to date with google changes (thanks YJ)
+  seth lytle - originator, maintainer
+  YJ Soon (yjsoon.com) - safari and styling improvements
 
 
 see also:
