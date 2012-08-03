@@ -10,7 +10,14 @@ knogs is a google chrome extension that provides similar functionality
   uses google's shortcuts.5.js (see above)
   google chrome only - tested on: chrome 17 on linux/64-bit
 
-install: click on srl.user.js in google chrome
+install:
+  used to be able to install by clicking on knogs.user.js in google chrome
+  in version 21, google made it much more difficult to install extensions
+  run google with the following option
+    google-chrome --enable-easy-off-store-extension-install
+  then click on knogs.user.js
+  in theory, the extension can be uploaded to the chrome store
+
 
 usage:
   keybindings for search: j/k: up/down, enter or (shift) o to open (in a new tab)
@@ -25,9 +32,13 @@ license: mit/x
   note: shortcut.5.js and googleKeyboard.js are "unlicensed" and included here for reference only
         the extension loads these directly from google at page-load
 
+authors:
+  seth lytle - maintainer
+  YJ Soon - safari and keeping up to date with google changes (thanks YJ)
+
 
 see also:
   http://userscripts.org/scripts/show/43131
     a similar extension for firefox. couldn't get it to load in chrome
   http://dl.dropbox.com/u/90126/GoogleJK/GoogleJK.safariextz 
-    packaged for safari
+    packaged for safari by YJ Soon

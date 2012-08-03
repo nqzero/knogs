@@ -10,14 +10,14 @@
 //                     firefox 8.0 on linux/64-bit - focus gets screwed up
 //                 bugs: opening an item and then using the back button doesn't set the cursor
 // @match          *://*.google.com/search*
-// @version        1.00
+// @version        1.0.1
 // @creator        seth lytle (nqzero), copyright 2011
 // @license        mit/x
 // ==/UserScript==
 //
 // Quick Usage Instructions
 // ========================
-// Implement keybindings for google search
+// Implement keyboard navigation for google search
 // loads the javascript from google
 // note: google may delete this in the future - you can save the js file
 //   and reference it directly if you want. see "local copy" below
