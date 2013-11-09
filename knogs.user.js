@@ -88,6 +88,7 @@ if (window.location.hash) {
     window.location = a.replace( "#", "" );
 }
 
-
+var mb = document.getElementById("mbEnd");
+if (mb) mb.id = "";
 addJavaScript(  'nqMain', null, shortcut_js, shortcut_onload );
 
