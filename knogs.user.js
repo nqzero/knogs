@@ -26,10 +26,11 @@
 // but was discontinued in 2011
 
 // Google Keyboard Shortcut JS code
-var shortcut_js = "https://www.google.com/js/shortcuts.5.js"
+var shortcut_js = "https://www.google.com/js/shortcuts.5.js";
 
 // use a local copy ...
-// shortcut_js = chrome.extension.getURL( "googleKeyboard.js" );
+// shortcut_js = chrome.extension.getURL( "docs/googleKeyboard.js" );
+var kludge = chrome.extension.getURL( "kludge.js" );
 
 
 
@@ -76,9 +77,13 @@ function shortcut_onload() {
       x[ii].children[0].style.left = "-16px";
       x[ii].children[0].style.top = "4px";
     }
+
+    addJavaScript(  'nqMain2', null, kludge );
+
 }
 
-    
+
+
 
 
 // the google code sets the hash, but doesn't seem to clean it up on back ... delete it

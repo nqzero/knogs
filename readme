@@ -2,7 +2,7 @@ knogs: keyboard navigation on google search
 
 google used to provide a keyboard shortcuts experiment
   deprecated long ago, removed dec 2011
-  the recommened replacements aren't great
+  the recommended replacements aren't great
   http://blog.nqzero.com/2011/12/googles-experimental-page-used-to-list.html
   google still provides the js: https://www.google.com/js/shortcuts.5.js
 
@@ -14,17 +14,25 @@ install via chrome store:
   https://chrome.google.com/webstore/detail/lmcekibeekmfpmhanampimjjegknceik
 
 manual install:
-  used to be able to install by clicking on knogs.user.js in google chrome
-  in version 21, google made it much more difficult to install extensions
-  run google with the following option
-    google-chrome --enable-easy-off-store-extension-install
-  then click on knogs.user.js
+  option 1:
+    chrome://extensions
+    check: developer mode
+    click: load unpacked extension and select the path of the unpacked source
+  option 2:
+    google-chrome --load-extension=.
 
+post (or pre) install:
+  disable google's instant search stuff
+    from a google search, click the gear icon --> search settings
+    select "never show instant results"
 
 keybindings for search:
   'j' and 'k' navigate up and down in the search results
-  'enter' or 'o' to open the selected page
-  'shift-enter' or 'shift-o' to open the page in a new tab
+  'enter' to open the selected link
+  'o', 'shift-enter' and 'shift-o' to open the selected link with window.open
+     the browser will determine whether this is in a new tab or a new window
+     chrome 44 appears to open a new window if shift is pressed
+     'o' should reliably open a new tab in both chrome 43 and 44
   '/' to select the search box
   'esc' to leave the search box (when it has focus)
 
@@ -33,7 +41,7 @@ usage:
 
 bugs:
   opening an item and then using the back button doesn't set the cursor
-  works partially: firefox 8.0 on linux/64-bit - focus gets screwed up
+  open links on new tabs without changing focus
 
 license: mit/x
   note: shortcut.5.js and googleKeyboard.js are "unlicensed" and included here for reference only
@@ -51,5 +59,10 @@ see also:
     packaged for safari by YJ Soon
 
 to package for chrome store:
-  zip -r knogs.zip knogs.user.js manifest.json readme
+  grep '"version"' manifest.json | sed "s/.*://g" |
+    xargs -I xxx zip -r bin/knogs.xxx.zip knogs.user.js manifest.json readme kludge.js docs
   then visit: https://chrome.google.com/webstore/developer/dashboard
+
+
+// overload 'o' to open in a new tab
+// allow for debugging (uncomment in content script)
